@@ -69,6 +69,8 @@ open class AnimatedTextInput: UIControl {
                 let textField = textInput.view as! AnimatedTextField
                 if removeRightView == true {
                     textField.rightView = nil
+                    textField.rightViewMode = .never
+                    textField.clearButtonMode = .never
                 }
             }
         }
