@@ -62,6 +62,17 @@ open class AnimatedTextInput: UIControl {
     open var beginningOfDocument: UITextPosition? {
         get { return textInput.currentBeginningOfDocument }
     }
+    
+    open var removeRightView:Bool = false {
+        didSet {
+            if textInput.view.isKind(of: AnimatedTextField.self) {
+                let textField = textInput.view as! AnimatedTextField
+                if removeRightView == true {
+                    textField.rightView = nil
+                }
+            }
+        }
+    }
 
     fileprivate let lineView = AnimatedLine()
     fileprivate let placeholderLayer = CATextLayer()
